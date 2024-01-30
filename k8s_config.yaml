@@ -35,4 +35,4 @@ spec:
     targetPort: 3000
   type: LoadBalancer
   selector:
-    app: springboot-app
+    app: react-app
