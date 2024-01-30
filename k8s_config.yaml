@@ -16,6 +16,8 @@ spec:
       - name: react-app
         image:  jenkinstest09.azurecr.io/jenkinstest09:latest
         imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
 # service type loadbalancer       
 ---
 apiVersion: v1
@@ -28,9 +30,9 @@ metadata:
 spec:
   ports:
   - name: http
-    port: 3000
+    port: 80
     protocol: TCP
     targetPort: 3000
-  type: NodePort
+  type: LoadBalancer
   selector:
     app: react-app
